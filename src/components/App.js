@@ -1,12 +1,11 @@
-import React from "react";
-import AppRouter from "components/Router";
-import GlobalStyles from "./GlobalStyles";
+import GlobalStyle from "./GlobalStyles";
+import AppRouter from "./Router";
 
 function App() {
   return (
     <>
       <AppRouter />
-      <GlobalStyles />
+      <GlobalStyle />
     </>
   );
 }
