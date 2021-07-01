@@ -2,24 +2,29 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
   Redirect,
+  Switch,
 } from "react-router-dom";
+import Detail from "routes/Detail";
 import Home from "routes/Home";
 import Search from "routes/Search";
-import Tv from "routes/Tv";
+import TV from "routes/TV";
 import Header from "./Header";
 
-const AppRouter = () => (
-  <Router>
-    <Header />
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/tv" component={Tv} />
-      <Route exact path="/search" component={Search} />
-      <Redirect from="*" to="/" />
-    </Switch>
-  </Router>
-);
+function AppRouter() {
+  return (
+    <Router>
+      <Header />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/tv" exact component={TV} />
+        <Route path="/search" exact component={Search} />
+        <Route path="/movie/:id([0-9]*)" exact component={Detail} />
+        <Route path="/tv/:id([0-9]*)" exact component={Detail} />
+        <Redirect from="*" to="/" />
+      </Switch>
+    </Router>
+  );
+}
 
 export default AppRouter;
